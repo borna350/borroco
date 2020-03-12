@@ -1,0 +1,38 @@
+29-11-2019
+-------------------------
+ALTER TABLE `admins` ADD `craft_request` ENUM('accept','reject','pending') NOT NULL DEFAULT 'pending' AFTER `status`;
+
+
+03-12-2019
+-------------------------
+ALTER TABLE `product_shipping_returns` CHANGE `costs` `shipping_ue` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+ALTER TABLE `product_shipping_returns` ADD `shipping_extra_ue` VARCHAR(255) NULL DEFAULT NULL AFTER `shipping_ue`;
+ALTER TABLE `products` ADD `title` VARCHAR(255) NULL DEFAULT NULL AFTER `name`;
+
+
+05-12-2019
+-----------------------------
+ALTER TABLE `home_videos` ADD `craftsman_id` INT NULL AFTER `slug`;
+
+ALTER TABLE `products` ADD `material_id` BIGINT NOT NULL AFTER `slug`;
+
+
+06-12-2019
+-----------------------------
+ALTER TABLE `categories` ADD `cover_image` VARCHAR(255) NULL AFTER `image`, ADD `site_title` VARCHAR(255) NULL AFTER `cover_image`, ADD `site_subtitle` TEXT NULL AFTER `site_title`;
+ALTER TABLE `categories` ADD `video_link` TEXT NULL AFTER `site_subtitle`;
+ALTER TABLE `subcategories` ADD `show_home_products` TINYINT NOT NULL DEFAULT '0' AFTER `status`;
+ALTER TABLE `users` CHANGE `first_name` `first_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `last_name` `last_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+
+06-12-2019
+------------------------------
+ALTER TABLE `subcategories` ADD `feature_title` VARCHAR(255) NULL AFTER `description`, ADD `feature_subtitle` TEXT NULL AFTER `feature_title`, ADD `feature_image` VARCHAR(255) NULL AFTER `feature_subtitle`;
+
+09-12-2019
+ALTER TABLE `products` ADD `craftsman_id` BIGINT NULL AFTER `admin_id`;
+
+
+
+-----------------------
+19-12-2019
+ALTER TABLE `users` CHANGE `password` `password` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
